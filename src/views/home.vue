@@ -3,19 +3,19 @@
     <marquee behavior="alternate" class="store-name">欢迎来到{{storeInfo.rows[0].store_name}}</marquee>
     <div class="wrapper">
       <div class="square one">
-        <img src="../../assets/images/swiper/1.png" alt="" />
+        <img src="../assets/images/swiper/1.png" alt="" />
       </div>
       <div class="square two">
-        <img src="../../assets/images/swiper/2.jpg" alt="" />
+        <img src="../assets/images/swiper/2.jpg" alt="" />
       </div>
       <div class="square three">
-        <img src="../../assets/images/swiper/4.png" alt="" />
+        <img src="../assets/images/swiper/4.png" alt="" />
       </div>
       <div class="square four">
-        <img src="../../assets/images/swiper/5.png" alt="" />
+        <img src="../assets/images/swiper/5.png" alt="" />
       </div>
       <div class="square five">
-        <img src="../../assets/images/swiper/6.png" alt="" />
+        <img src="../assets/images/swiper/6.png" alt="" />
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
 
 <script>
 import Vue from 'vue';
-import { findStoreInfo } from "../../apis";
+import { findStoreInfo } from "../apis";
 export default {
   data() {
     return {
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/pages/home.less";
+@import "../assets/css/pages/home.less";
 
 .store-name {
   color: #fff;

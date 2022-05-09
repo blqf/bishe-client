@@ -3,7 +3,7 @@
   <div class="default">
     <el-container>
       <el-header height="">
-        <img src="../../assets/images/logo.jpg" alt="logo" />
+        <img src="../assets/images/logo.jpg" alt="logo" />
         <ul class="nav-list">
           <li v-for="(item, index) in navList" :key="index">
             <router-link class="nav-title" :to="{ name: item.name }">{{ item.title }}</router-link>
@@ -62,5 +62,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/css/default.less";
+@import "../assets/css/default.less";
 </style>

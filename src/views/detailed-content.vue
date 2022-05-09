@@ -17,7 +17,7 @@
 
 <script>
 // 数据接口
-import apis from "../../apis/index.js";
+import apis from "../apis/index.js";
 
 export default {
   data() {

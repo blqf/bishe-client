@@ -6,48 +6,48 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: () => import('../views/layout/default.vue'),
+    component: () => import('../components/layout'),
     name: 'defaultLayout',
     redirect: '/home',
     children: [
       {
         path: 'home',
-        component: () => import('../views/pages/home.vue'),
+        component: () => import('../views/home'),
         name: 'home'
       },
       {
         path: 'article',
-        component: () => import('../views/pages/article.vue'),
+        component: () => import('../views/article'),
         name: 'article'
       },
       {
         path: 'clothing-mall',
-        component: () => import('../views/pages/clothing-mall.vue'),
+        component: () => import('../views/clothing-mall'),
         name: 'clothing-mall'
       },
       {
         path: 'aboutme',
-        component: () => import('../views/pages/about-me.vue'),
+        component: () => import('../views/about-me'),
         name: 'aboutMe'
       },
       // {
       //   path: '/freeWords',
-      //   component: () => import('../views/pages/free-words.vue'),
+      //   component: () => import('../views/free-words'),
       //   name: 'freeWords'
       // },
       // {
       //   path: '/message',
-      //   component: () => import('../views/pages/message.vue'),
+      //   component: () => import('../views/message'),
       //   name: 'message'
       // },
       {
         path: '/loginRegister',
-        component: () => import('../views/pages/login-register.vue'),
+        component: () => import('../views/login-register'),
         name: 'loginRegister'
       },
       {
         path: 'detailedcontent',
-        component: () => import('../views/article-detailed/detailed-content.vue'),
+        component: () => import('../views/detailed-content'),
         name: 'detailedContent'
       },
     ]

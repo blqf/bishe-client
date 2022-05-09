@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import cardCmp from "../../components/picture/card.vue";
-import { findGoodsList, findAllSize, findAllColors } from "../../apis";
-import { SERVER_URL } from "../../config";
+import cardCmp from "../components/picture/card.vue";
+import { findGoodsList, findAllSize, findAllColors } from "../apis";
+import { SERVER_URL } from "../config";
 export default {
   components: {
     cardCmp,

@@ -24,9 +24,9 @@
 
 <script>
 // 组件
-import articleContent from "../../components/article/article-content.vue";
+import articleContent from "../components/article/article-content.vue";
 // 数据接口
-import apis from "../../apis/index.js";
+import apis from "../apis/index.js";
 export default {
   components: {
     articleContent,
@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/css/pages/article.less";
+@import "../assets/css/pages/article.less";
 </style>
