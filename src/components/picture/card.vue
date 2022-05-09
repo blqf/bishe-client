@@ -1,14 +1,30 @@
 <template>
   <div class="card-container">
-    <img class="card-img" :src="imgUrl" />
+    <img class="card-img" :src="imgUrl" @click="handleClickImg" />
     <div class="price">￥{{ price }}</div>
-    <div class="description">【{{size}}】【{{color}}】{{ description }}</div>
+    <div class="description">
+      【{{ size }}】【{{ color }}】{{ description }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["size",'color', "imgUrl", "price", "description"]
+  props: ["size", "color", "imgUrl", "price", "description"],
+  methods: {
+    handleClickImg() {
+      this.$emit(
+        "handleClickImg",
+        {
+          size: this.size,
+          color: this.color,
+          imgUrl: this.imgUrl,
+          price: this.price,
+          description: this.description
+        }
+      );
+    },
+  },
 };
 </script>
 

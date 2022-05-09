@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <marquee behavior="alternate" class="store-name">欢迎来到{{storeInfo.rows[0].store_name}}</marquee>
+    <marquee behavior="alternate" class="store-name"
+      >欢迎来到{{ storeName }}</marquee
+    >
     <div class="wrapper">
       <div class="square one">
         <img src="../assets/images/swiper/1.png" alt="" />
@@ -22,18 +24,19 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from "vue";
 import { findStoreInfo } from "../apis";
 export default {
   data() {
     return {
-      storeInfo: {},
+      storeName : '',
     };
   },
   methods: {
     async fetchStoreInfo() {
       const resp = await findStoreInfo();
-      this.storeInfo = resp.data;
+      console.log(resp);
+      this.storeName = resp.data.rows[0].store_name;
     },
   },
   created() {

@@ -30,7 +30,7 @@
       @click="handleResetSearchOption"
     ></el-button>
     <div v-if="clothesList.length === 0" class="tip-text">
-      暂无符合条件的服装
+      {{ tipText }}
     </div>
     <div class="clothing-mall-wrapper">
       <card-cmp
@@ -46,6 +46,7 @@
         :description="clothes.goods_description"
         :size="clothes.size"
         :color="clothes.color"
+        @handleClickImg="handleClickImg"
       />
     </div>
   </div>
@@ -66,12 +67,19 @@ export default {
       colorList: [],
       selectedSize: "",
       selectedColor: "",
+      tipText: "",
       serverUrl: SERVER_URL,
     };
   },
   methods: {
     async fetchGoodsList() {
       try {
+        const loading = this.$loading({
+          lock: true,
+          text: "加载中...",
+          spinner: "el-icon-loading",
+          background: "rgba(0, 0, 0, 0.7)",
+        });
         const resp = await findGoodsList(
           0,
           0,
@@ -79,6 +87,12 @@ export default {
           this.selectedColor
         );
         this.clothesList = resp.rows;
+        if (resp.rows.length === 0) {
+          this.tipText = "暂时没有符合条件的服装";
+        } else {
+          this.tipText = "";
+        }
+        loading.close();
       } catch (err) {
         console.log(err, "请求服装列表出错");
       }
@@ -101,6 +115,12 @@ export default {
       this.selectedSize = "";
       this.selectedColor = "";
       this.fetchGoodsList();
+    },
+    handleClickImg(clothingInfo) {
+      this.$router.push({
+        name: "clothing-detail",
+        query: clothingInfo,
+      });
     },
   },
   created() {

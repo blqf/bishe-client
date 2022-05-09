@@ -16,39 +16,24 @@ const routes = [
         name: 'home'
       },
       {
-        path: 'article',
-        component: () => import('../views/article'),
-        name: 'article'
-      },
-      {
         path: 'clothing-mall',
         component: () => import('../views/clothing-mall'),
-        name: 'clothing-mall'
+        name: 'clothing-mall',
+      },
+      {
+        path: 'clothing-detail',
+        component: () => import('../views/clothing-detail'),
+        name: 'clothing-detail'
       },
       {
         path: 'aboutme',
         component: () => import('../views/about-me'),
         name: 'aboutMe'
       },
-      // {
-      //   path: '/freeWords',
-      //   component: () => import('../views/free-words'),
-      //   name: 'freeWords'
-      // },
-      // {
-      //   path: '/message',
-      //   component: () => import('../views/message'),
-      //   name: 'message'
-      // },
       {
         path: '/loginRegister',
         component: () => import('../views/login-register'),
         name: 'loginRegister'
-      },
-      {
-        path: 'detailedcontent',
-        component: () => import('../views/detailed-content'),
-        name: 'detailedContent'
       },
     ]
   }
