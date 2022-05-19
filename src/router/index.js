@@ -1,48 +1,70 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    component: () => import('../components/layout'),
-    name: 'defaultLayout',
-    redirect: '/home',
+    path: "/",
+    component: () => import("../components/layout"),
+    name: "defaultLayout",
+    redirect: "/home",
     children: [
       {
-        path: 'home',
-        component: () => import('../views/home'),
-        name: 'home'
+        path: "home",
+        component: () => import("../views/home"),
+        name: "home",
       },
       {
-        path: 'clothing-mall',
-        component: () => import('../views/clothing-mall'),
-        name: 'clothing-mall',
+        path: "clothing-mall",
+        component: () => import("../views/clothing-mall"),
+        name: "clothing-mall",
+        meta: {
+          auth: true,
+        },
       },
       {
-        path: 'clothing-detail',
-        component: () => import('../views/clothing-detail'),
-        name: 'clothing-detail'
+        path: "clothing-detail",
+        component: () => import("../views/clothing-detail"),
+        name: "clothing-detail",
+        meta: {
+          auth: true,
+        },
       },
       {
-        path: 'aboutme',
-        component: () => import('../views/about-me'),
-        name: 'aboutMe'
+        path: "my-order",
+        component: () => import("../views/my-order"),
+        name: "my-order",
+        meta: {
+          auth: true,
+        },
       },
       {
-        path: '/loginRegister',
-        component: () => import('../views/login-register'),
-        name: 'loginRegister'
+        path: "shopping-cart",
+        component: () => import("../views/shopping-cart"),
+        name: "shopping-cart",
+        meta: {
+          auth: true,
+        },
       },
-    ]
-  }
-]
+      {
+        path: "about",
+        component: () => import("../views/about"),
+        name: "about",
+      },
+      {
+        path: "/login",
+        component: () => import("../views/login"),
+        name: "login",
+      },
+    ],
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
 export default router;

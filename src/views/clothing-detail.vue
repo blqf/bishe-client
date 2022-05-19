@@ -3,14 +3,20 @@
     <img class="clothing-img" :src="clothingInfo.imgUrl" />
     <div class="clothing-info-wrapper">
       <span class="clothing-description">
-        {{ clothingInfo.description }}
+       {{ clothingInfo.goods_name }} | {{ clothingInfo.description }}
       </span>
       <div class="clothing-info">
-        优惠价：<span class="clothing-price">{{ "￥" + clothingInfo.price }}</span>
+        优惠价：<span class="clothing-price">{{
+          "￥" + clothingInfo.price
+        }}</span>
       </div>
       <div class="clothing-info">尺码：{{ clothingInfo.size }}</div>
       <div class="clothing-info">颜色：{{ clothingInfo.color }}</div>
-      <el-button type="success" class="add-shopping-cart">加入购物车</el-button>
+      <el-badge class="add-shopping-cart" :value="shoppingCartCount">
+        <el-button type="primary" @click="handleAddShoppingCart"
+          >加入购物车</el-button
+        >
+      </el-badge>
     </div>
   </div>
 </template>
@@ -20,15 +26,36 @@ export default {
   data() {
     return {
       clothingInfo: {},
+      shoppingCartCount: 0,
     };
+  },
+  methods: {
+    handleAddShoppingCart() {
+      this.$store.commit("shoppingCart/addClothes", this.clothingInfo);
+      this.shoppingCartCount = this.$store.state.shoppingCart.selectedClothes.filter(
+      (item) => {
+        return item.id === this.clothingInfo.id;
+      }
+    ).length;
+      this.$message({
+        message: "添加购物车成功",
+        type: 'success',
+        showClose: true
+      });
+    },
   },
   created() {
     this.clothingInfo = this.$route.query;
+    this.shoppingCartCount = this.$store.state.shoppingCart.selectedClothes.filter(
+      (item) => {
+        return item.id === this.clothingInfo.id;
+      }
+    ).length;
   },
 };
 </script>
 
-<style>
+<style scoped>
 .clothing-detail-container {
   display: flex;
   padding: 18px;

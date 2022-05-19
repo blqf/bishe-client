@@ -1,7 +1,6 @@
 import request from "./request.js";
 
 export function findGoodsList(pageSize = 0, currentPage = 0, sizeId = 0, colorId = 0) {
-  console.log('asdf1234')
   return request({
     url: `/api/goods?page_size=${pageSize}&current_page=${currentPage}&sizeId=${sizeId}&colorId=${colorId}`,
     method: "get",

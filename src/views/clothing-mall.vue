@@ -1,6 +1,5 @@
 <template>
   <div class="clothing-mall-container">
-    <span>尺寸：</span>
     <el-select v-model="selectedSize" placeholder="请选择尺寸">
       <el-option
         v-for="item in sizeList"
@@ -46,6 +45,8 @@
         :description="clothes.goods_description"
         :size="clothes.size"
         :color="clothes.color"
+        :id="clothes.id"
+        :name="clothes.goods_name"
         @handleClickImg="handleClickImg"
       />
     </div>

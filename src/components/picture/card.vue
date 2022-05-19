@@ -1,6 +1,7 @@
 <template>
   <div class="card-container">
     <img class="card-img" :src="imgUrl" @click="handleClickImg" />
+    <div class="name">{{ name }}</div>
     <div class="price">￥{{ price }}</div>
     <div class="description">
       【{{ size }}】【{{ color }}】{{ description }}
@@ -10,7 +11,7 @@
 
 <script>
 export default {
-  props: ["size", "color", "imgUrl", "price", "description"],
+  props: ['id', 'name', "size", "color", "imgUrl", "price", "description"],
   methods: {
     handleClickImg() {
       this.$emit(
@@ -20,7 +21,9 @@ export default {
           color: this.color,
           imgUrl: this.imgUrl,
           price: this.price,
-          description: this.description
+          description: this.description,
+          id: this.id,
+          goods_name: this.name
         }
       );
     },
@@ -28,7 +31,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card-container {
   width: 220px;
   background-color: #fff;
@@ -40,6 +43,10 @@ export default {
   height: 220px;
   object-fit: cover;
   cursor: pointer;
+}
+.name {
+  color: #000;
+  margin-top: 8px;
 }
 .price {
   font-size: 20px;

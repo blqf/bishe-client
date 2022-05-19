@@ -1,17 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { userInfo } from "./user-info";
+import { shoppingCart } from "./shopping-cart";
 
 Vue.use(Vuex);
-const state = {};
-const getters = {};
-const mutations = {};
-const actions = {};
-const modules = {};
 
 export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  modules,
-  getters,
+  modules: {
+    userInfo,
+    shoppingCart,
+  },
 });
